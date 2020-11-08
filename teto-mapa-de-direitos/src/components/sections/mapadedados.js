@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { Section, Container } from "../global"
 
-const DataSection = () => (
+const MapaDeDados = () => (
   <Section>
     <StyledContainer>
       <TitleWrapper>
@@ -22,7 +22,7 @@ const DataSection = () => (
   </Section>
 )
 
-export default DataSection
+export default MapaDeDados
 
 const StyledContainer = styled(Container)`
   padding: 0 80px;

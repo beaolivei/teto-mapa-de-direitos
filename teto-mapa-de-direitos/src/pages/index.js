@@ -5,19 +5,19 @@ import SEO from "../components/common/layout/seo"
 import Navigation from "../components/common/navigation/navigation"
 
 import Header from "../components/sections/header"
-import Features from "../components/sections/features"
-import DataSection from "../components/sections/data-section"
+import QuemSomos from "../components/sections/quemsomos"
+import MapaDeDados from "../components/sections/mapadedados"
 import Footer from "../components/sections/footer"
-import GetStarted from "../components/sections/getstarted"
+import TorneAmigo from "../components/sections/torneamigo"
 
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
     <Navigation />
     <Header />
-    <Features />
+    <QuemSomos />
     <DataSection />
-    <GetStarted />
+    <TorneAmigo />
     <Footer />
   </Layout>
 )

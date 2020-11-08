@@ -5,7 +5,7 @@ import Img from "gatsby-image"
 import { Section, Container } from "../global"
 import RoundedButtonBlue from "../common/buttons/RoundedButtonBlue"
 
-const Features = () => {
+const QuemSomos = () => {
   const data = useStaticQuery(graphql`
     query {
       file(
@@ -60,7 +60,7 @@ const Features = () => {
   )
 }
 
-export default Features
+export default QuemSomos
 
 const StyledContainer = styled(Container)`
   padding: 0 80px;
@@ -78,7 +78,7 @@ const TitleWrapper = styled.div`
 const UnderlineLine = styled.div`
   width: 100%;
   height: 2px;
-  background-color: blue;
+  background-color: ${(props) => props.theme.color.primary};
 `
 
 const FlexCointainer = styled.div`

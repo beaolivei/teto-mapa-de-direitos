@@ -4,7 +4,7 @@ import { Section, Container } from "../global"
 import { graphql, useStaticQuery, Link } from "gatsby"
 import Img from "gatsby-image"
 
-const GetStarted = () => {
+const TorneAmigo = () => {
   const data = useStaticQuery(graphql`
     query {
       file(
@@ -70,7 +70,7 @@ const GetStarted = () => {
   )
 }
 
-export default GetStarted
+export default TorneAmigo
 
 const StyledSection = styled(Section)`
   background-color: ${(props) => props.theme.color.background.light};
