@@ -1,101 +1,120 @@
 import React from "react"
 import styled from "styled-components"
-
+import { graphql, useStaticQuery, Link } from "gatsby"
+import Img from "gatsby-image"
 import { Section, Container } from "../global"
+import RoundedButtonBlue from "../common/buttons/RoundedButtonBlue"
 
-const Features = () => (
-  <Section id="features">
-    <StyledContainer>
-      <Subtitle>Features</Subtitle>
-      <SectionTitle>Smart money management</SectionTitle>
-      <FeaturesGrid>
-        <FeatureItem>
-          <FeatureTitle>Notifications</FeatureTitle>
-          <FeatureText>
-            Receive budget and spending alerts based on your favorite triggers.
-          </FeatureText>
-        </FeatureItem>
-        <FeatureItem>
-          <FeatureTitle>Security</FeatureTitle>
-          <FeatureText>
-            Your data is always safe with us as we use the latest security
-            protocols.
-          </FeatureText>
-        </FeatureItem>
-        <FeatureItem>
-          <FeatureTitle>Automation</FeatureTitle>
-          <FeatureText>
-            Create smart automated workflows and triggers for your money.
-          </FeatureText>
-        </FeatureItem>
-        <FeatureItem>
-          <FeatureTitle>Aggregation</FeatureTitle>
-          <FeatureText>
-            Easily link up to 5 banks to your finance account.
-          </FeatureText>
-        </FeatureItem>
-        <FeatureItem>
-          <FeatureTitle>Payments</FeatureTitle>
-          <FeatureText>Send money to friends and family with ease.</FeatureText>
-        </FeatureItem>
-        <FeatureItem>
-          <FeatureTitle>Rewards</FeatureTitle>
-          <FeatureText>
-            High interest and rewards for hitting your goals.
-          </FeatureText>
-        </FeatureItem>
-      </FeaturesGrid>
-    </StyledContainer>
-  </Section>
-)
+const Features = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      file(
+        sourceInstanceName: { eq: "product" }
+        name: { eq: "voluntarios1-blue-overlay" }
+      ) {
+        childImageSharp {
+          fluid(maxWidth: 650) {
+            ...GatsbyImageSharpFluid_tracedSVG
+          }
+        }
+      }
+    }
+  `)
+  return (
+    <Section>
+      <StyledContainer>
+        <TitleWrapper>
+          <SectionTitle>Quem Somos</SectionTitle>
+          <UnderlineLine></UnderlineLine>
+        </TitleWrapper>
+        <FlexCointainer>
+          <ColumnText>
+            <StyledSubtitle> Text here </StyledSubtitle>
+            <StyledParagraph>
+              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+              accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
+              quae ab illo inventore veritatis et quasi architecto beatae vitae
+              dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
+              aspernatur.
+            </StyledParagraph>
+            <RoundedButtonBlue buttonText="click me" />
+          </ColumnText>
+          <StyledImg fluid={data.file.childImageSharp.fluid} />
+        </FlexCointainer>
+        <FlexCointainer>
+          <StyledImg fluid={data.file.childImageSharp.fluid} />
+          <ColumnText>
+            <StyledSubtitle> Text here </StyledSubtitle>
+            <StyledParagraph>
+              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+              accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
+              quae ab illo inventore veritatis et quasi architecto beatae vitae
+              dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
+              aspernatur.
+            </StyledParagraph>
+            <RoundedButtonBlue buttonText="click me" />
+          </ColumnText>
+        </FlexCointainer>
+      </StyledContainer>
+    </Section>
+  )
+}
 
 export default Features
 
-const StyledContainer = styled(Container)``
-
+const StyledContainer = styled(Container)`
+  padding: 0 80px;
+`
 const SectionTitle = styled.h3`
-  color: ${props => props.theme.color.primary};
-  display: flex;
-  justify-content: center;
+  font-size: 64px;
+  color: ${(props) => props.theme.color.primary};
   margin: 0 auto 40px;
-  text-align: center;
 `
 
-const Subtitle = styled.h5`
-  font-size: 16px;
-  color: ${props => props.theme.color.accent};
-  letter-spacing: 0px;
-  margin-bottom: 12px;
-  text-align: center;
+const TitleWrapper = styled.div`
+  max-width: 500px;
 `
 
-const FeaturesGrid = styled.div`
-  max-width: 670px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  margin: 0px auto;
-  grid-column-gap: 40px;
-  grid-row-gap: 35px;
-  @media (max-width: ${props => props.theme.screen.sm}) {
-    grid-template-columns: 1fr;
-    padding: 0 64px;
+const UnderlineLine = styled.div`
+  width: 100%;
+  height: 2px;
+  background-color: blue;
+`
+
+const FlexCointainer = styled.div`
+  display: flex;
+  flex: 1 1 150px;
+  justify-content: space-between;
+  padding: 5% 15% 5% 1%;
+  @media (max-width: ${(props) => props.theme.screen.lg}) {
+    display: block;
   }
 `
-
-const FeatureItem = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+const StyledSubtitle = styled.h3`
+  color: ${(props) => props.theme.color.black.regular};
 `
 
-const FeatureTitle = styled.h4`
-  color: ${props => props.theme.color.primary};
-  letter-spacing: 0px;
+const StyledParagraph = styled.p`
+  font-size: 21px;
   line-height: 30px;
-  margin-bottom: 10px;
+  color: ${(props) => props.theme.color.black.regular};
 `
 
-const FeatureText = styled.p`
-  text-align: center;
+const ColumnText = styled.div`
+  display: flex;
+  max-width: 700px;
+  min-width: 400px;
+  flex-direction: column;
+  > button {
+    max-width: 200px;
+  }
+  @media (max-width: ${(props) => props.theme.screen.lg}) {
+    margin-bottom: 20px;
+  }
+`
+const StyledImg = styled(Img)`
+  position: relative;
+  top: 0px;
+  width: 650px;
+  height: 100%";
 `

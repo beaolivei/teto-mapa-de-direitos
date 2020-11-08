@@ -6,6 +6,7 @@ import Navigation from "../components/common/navigation/navigation"
 
 import Header from "../components/sections/header"
 import Features from "../components/sections/features"
+import DataSection from "../components/sections/data-section"
 import Footer from "../components/sections/footer"
 import GetStarted from "../components/sections/getstarted"
 
@@ -15,6 +16,7 @@ const IndexPage = () => (
     <Navigation />
     <Header />
     <Features />
+    <DataSection />
     <GetStarted />
     <Footer />
   </Layout>

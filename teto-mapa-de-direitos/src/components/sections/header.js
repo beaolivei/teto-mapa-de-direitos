@@ -5,7 +5,7 @@ import Img from "gatsby-image"
 import BackgroundImage from "gatsby-background-image"
 import Title from "../common/typography/Title"
 import SubTitle from "../common/typography/Subtitle"
-import RoundedButton from "../common/buttons/RoundedButton"
+import RoundedButtonWhite from "../common/buttons/RoundedButtonWhite"
 
 import { Container } from "../global"
 
@@ -38,7 +38,7 @@ const Header = () => {
             <HeaderTextGroup>
               <Title titleText="Lorem Ipsum" />
               <SubTitle subTitleText="vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis" />
-              <RoundedButton buttonText="Saiba Mais" />
+              <RoundedButtonWhite buttonText="Saiba Mais" />
             </HeaderTextGroup>
           </Flex>
         </Container>
