@@ -16,7 +16,7 @@ const IndexPage = () => (
     <Navigation />
     <Header />
     <QuemSomos />
-    <DataSection />
+    <MapaDeDados />
     <TorneAmigo />
     <Footer />
   </Layout>

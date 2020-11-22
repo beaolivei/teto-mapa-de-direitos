@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { Container } from "../../global"
 
 export const Nav = styled.nav`
-  padding: ${(props) => (props.scrolled ? `16px 0` : `24px 0`)};
+  padding: 24px;
   position: fixed;
   width: 100%;
   top: 0;
